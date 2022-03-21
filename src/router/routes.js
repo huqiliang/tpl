@@ -6,7 +6,7 @@ let error404 = [
       title: "404页面",
     },
     component: () =>
-      import(/* webpackChunkName: "error" */ "@/pages/system/error.vue"),
+      import(/* webpackChunkName: "error" */ "@/pages/system/__error__.vue"),
   },
 ];
 

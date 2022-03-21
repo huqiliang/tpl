@@ -62,7 +62,7 @@
         v-model="isCollapsed"
       >
         <Menu
-          active-name="1-2"
+          :active-name="$route.name"
           theme="dark"
           width="auto"
           :class="menuitemClasses"
