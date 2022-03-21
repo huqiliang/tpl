@@ -1,20 +1,11 @@
 import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import autoRoutes from "./auto_routes";
-Vue.use(VueRouter);
+import Router from "vue-router";
+import routes from "vue-auto-routing";
+import myRoutes from "./routes";
 
-const routes = [
-  ...autoRoutes,
-  {
-    path: "/",
-    name: "Home",
-    component: Home,
-  },
-];
+Vue.use(Router);
 
-const router = new VueRouter({
-  routes,
+export default new Router({
+  base: process.env.BASE_URL,
+  routes: [...routes, ...myRoutes],
 });
-
-export default router;

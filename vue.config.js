@@ -9,6 +9,7 @@ module.exports = {
       }
     }
   },
+
   devServer: {
     // 设置代理
     proxy: {
@@ -17,6 +18,13 @@ module.exports = {
         ws: false,
         changeOrigin: true,
       },
+    },
+  },
+
+  pluginOptions: {
+    autoRouting: {
+      chunkNamePrefix: "page-",
+      nested: false,
     },
   },
 };
