@@ -86,9 +86,14 @@
             type="md-menu"
             size="24"
           ></Icon>
+          <Button :style="{ margin: '0 20px 0 0' }" @click="auth" type="success"
+            >授权</Button
+          >
+          <Button @click="changeBg" :style="{ background }">切换背景</Button>
         </Header>
         <Content
-          :style="{ margin: '20px', background: '#fff', minHeight: '260px' }"
+          id="#app"
+          :style="{ padding: '20px', background, minHeight: '260px' }"
         >
           <router-view />
         </Content>
@@ -97,12 +102,14 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 import { routes } from "./router/index";
 export default {
   data() {
     return {
       routes,
       isCollapsed: false,
+      background: "#ccc",
     };
   },
   computed: {
@@ -114,6 +121,24 @@ export default {
     },
   },
   methods: {
+    changeBg() {
+      this.background = this.background === "#ccc" ? "#fff" : "#ccc";
+    },
+    async auth() {
+      const res = await axios.post(
+        "http://192.168.0.85:8109/uc-web/sso/login",
+        {
+          appCode: "",
+          orgCode: "GCBZG",
+          userCode: "GCBZG_ADMIN",
+          password: "e10adc3949ba59abbe56e057f20f883e",
+        }
+      );
+      if (res.data.result === 0) {
+        localStorage.setItem("token", res.data.retVal.jwtToken);
+        this.$Message.success({ content: "授权成功" });
+      }
+    },
     collapsedSider() {
       this.$refs.side1.toggleCollapse();
     },
