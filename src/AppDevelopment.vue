@@ -67,14 +67,33 @@
           width="auto"
           :class="menuitemClasses"
         >
-          <MenuItem
-            :name="item.name"
-            v-for="item in routes"
-            :key="item.name"
-            @click.native="$router.replace(item)"
-          >
-            <span>{{ item.meta ? item.meta.title : item.name }}</span>
-          </MenuItem>
+          <template v-for="(menu, index) in routes">
+            <Submenu
+              :name="index"
+              :key="index"
+              v-if="menu.children && menu.children.length > 0"
+            >
+              <template slot="title">
+                {{ menu.meta ? menu.meta.title : menu.name }}
+              </template>
+              <MenuItem
+                :name="menu.name"
+                v-for="menu in menu.children"
+                :key="menu.name"
+                @click.native="$router.replace(menu)"
+              >
+                <span>{{ menu.meta ? menu.meta.title : menu.name }}</span>
+              </MenuItem>
+            </Submenu>
+            <MenuItem
+              v-else
+              :name="menu.name"
+              :key="index"
+              @click.native="$router.replace(menu)"
+            >
+              <span>{{ menu.meta ? menu.meta.title : menu.name }}</span>
+            </MenuItem>
+          </template>
         </Menu>
       </Sider>
       <Layout>
@@ -104,6 +123,7 @@
 <script>
 import axios from "axios";
 import { routes } from "./router/index";
+
 export default {
   data() {
     return {
