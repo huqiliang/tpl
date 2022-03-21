@@ -4,10 +4,10 @@ module.exports = {
     name: {
       type: "string",
       required: true,
-      message: "Project name",
-    },
+      message: "Project name"
+    }
   },
   filters: {},
   metalsmith: {},
-  completeMessage: "",
+  completeMessage: ""
 };
