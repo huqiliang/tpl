@@ -9,3 +9,10 @@ export default {
   components: {},
 };
 </script>
+<route>
+{
+  "meta": {
+    "title": "首页"
+  }
+}
+</route>

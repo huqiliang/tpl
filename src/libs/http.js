@@ -18,7 +18,6 @@ axios.interceptors.request.use(
       config.headers["Authorization"] = authToken;
     }
     config.headers["Content-Type"] = "application/json";
-    config.headers["bb"] = "bbb";
     return config;
   },
   (err) => {

@@ -3,10 +3,10 @@ let error404 = [
     path: "/*",
     name: "error",
     meta: {
-      title: "404-页面不存在",
+      title: "404页面",
     },
     component: () =>
-      import(/* webpackChunkName: "error" */ "@/pages/error.vue"),
+      import(/* webpackChunkName: "error" */ "@/pages/system/error.vue"),
   },
 ];
 
