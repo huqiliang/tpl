@@ -95,7 +95,7 @@ export default {
     },
     goHome() {
       this.$router.push("/");
-    },
-  },
+    }
+  }
 };
 </script>

@@ -29,7 +29,7 @@
 <script>
 /* eslint-disable*/
 export default {
-  name: "Home",
+  name: "e",
   data() {
     return {
       pageSize: 30,
@@ -448,4 +448,3 @@ export default {
   }
 };
 </script>
-
