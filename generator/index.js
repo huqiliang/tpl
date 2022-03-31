@@ -4,8 +4,7 @@ module.exports = (api, options, rootOptions) => {
   // 修改 `package.json` 里的字段
   api.extendPackage({
     dependencies: {
-      pro_iview: "^1.4.12",
-      "vue-cli-plugin-auto-routing": "~1.3.0"
+      pro_iview: "^1.4.12"
     },
     devDependencies: {
       "git-cz": "^4.7.6",
