@@ -1,11 +1,17 @@
 module.exports = (api, options, rootOptions) => {
   // 复制并用 ejs 渲染 `./template` 内所有的文件
-
+const removeFiles = [
+  "src/pages/about.vue",
+  "src/pages/index.vue",
+  "src/layouts/default.vue",
+  "src/views/Home.vue"，
+  "src/views/About.vue"
+];
   api.render("../template");
   api.render(files => {
     Object.keys(files)
       .filter(item => {
-        item == "src/components/HelloWorld.vue";
+        return removeFiles.includes(item)
       })
       .forEach(path => delete files[path]); // 删除键等同于删除对应的文件
   });

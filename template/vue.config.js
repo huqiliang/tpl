@@ -23,7 +23,9 @@ module.exports = {
 
   pluginOptions: {
     autoRouting: {
-      chunkNamePrefix: "page-",
+      pages: "./src/views/",
+      importPrefix: "@/views/",
+      chunkNamePrefix: "view-",
       nested: false
     }
   }
