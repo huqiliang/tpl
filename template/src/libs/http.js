@@ -5,13 +5,14 @@ import _ from "lodash";
 Vue.prototype.$http = axios;
 
 Message.config({
-  duration: 3,
+  duration: 3
 });
 
 axios.defaults.timeout = 60000;
+axios.defaults.baseURL = process.env.VUE_APP_BASEURL;
 
 axios.interceptors.request.use(
-  (config) => {
+  config => {
     //这边可根据自己的需求设置headers，我司采用basic基本认证
     const authToken = localStorage.getItem("token");
     if (!_.isEmpty(authToken)) {
@@ -20,22 +21,22 @@ axios.interceptors.request.use(
     config.headers["Content-Type"] = "application/json";
     return config;
   },
-  (err) => {
+  err => {
     Message.error({
-      content: "请求超时!",
+      content: "请求超时!"
     });
     return Promise.resolve(err);
   }
 );
 axios.interceptors.response.use(
-  (res) => {
+  res => {
     if (res.data.code === 0) {
       //pro_iview验证 不可删除
       res.success = true;
     }
     return res;
   },
-  (err) => {
+  err => {
     if (err.response) {
       if (err.response.status == 504 || err.response.status == 404) {
         Message.error({ content: "服务器被吃了⊙﹏⊙∥" });
@@ -45,14 +46,14 @@ axios.interceptors.response.use(
         Message.error({
           content: `${err.response.status}：${
             err.response.statusText || err.response.error
-          }`,
+          }`
         });
     } else if (
       err.code === "ECONNABORTED" &&
       err.message.indexOf("timeout") !== -1
     ) {
       Message.error({
-        content: "请求超时!",
+        content: "请求超时!"
       });
     } else {
       Message.error({ content: err.message || "未知错误!" });

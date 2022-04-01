@@ -1,6 +1,14 @@
 module.exports = (api, options, rootOptions) => {
   // 复制并用 ejs 渲染 `./template` 内所有的文件
+
   api.render("../template");
+  api.render(files => {
+    Object.keys(files)
+      .filter(item => {
+        item == "src/components/HelloWorld.vue";
+      })
+      .forEach(path => delete files[path]); // 删除键等同于删除对应的文件
+  });
   // 修改 `package.json` 里的字段
   api.extendPackage({
     dependencies: {

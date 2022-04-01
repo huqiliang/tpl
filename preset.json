@@ -7,7 +7,11 @@
       "config": "prettier",
       "lintOn": ["save", "commit"]
     },
-    "@vue/cli-plugin-router": {},
+    "@vue/cli-plugin-router": {
+      "importPrefix": "@/views/",
+      "chunkNamePrefix": "page-",
+      "nested": true
+    },
     "@vue/cli-plugin-vuex": {},
     "vue-cli-plugin-auto-routing": {}
   },

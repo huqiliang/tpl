@@ -8,9 +8,10 @@
 // @ is an alias to /src
 export default {
   name: "home",
-  components: {},
+  components: {}
 };
 </script>
+// 自动路由相关的信息可以在这里填写
 <route>
 {
   "meta": {
