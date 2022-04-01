@@ -4,7 +4,7 @@ const removeFiles = [
   "src/pages/about.vue",
   "src/pages/index.vue",
   "src/layouts/default.vue",
-  "src/views/Home.vue"，
+  "src/views/Home.vue",
   "src/views/About.vue"
 ];
   api.render("../template");

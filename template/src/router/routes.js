@@ -3,7 +3,7 @@ let error404 = [
     path: "/*",
     name: "error",
     meta: {
-      title: "404页面"
+      title: "全局错误页"
     },
     component: () =>
       import(/* webpackChunkName: "error" */ "@/views/system/__error__.vue")

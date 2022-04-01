@@ -448,3 +448,11 @@ export default {
   }
 };
 </script>
+// 自动路由相关的信息可以在这里填写
+<route>
+{
+  "meta": {
+    "title": "例子"
+  }
+}
+</route>
