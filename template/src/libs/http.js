@@ -19,6 +19,14 @@ axios.interceptors.request.use(
       config.headers["Authorization"] = authToken;
     }
     config.headers["Content-Type"] = "application/json";
+    // 如果有current，就替换成firstResult 请根据实际情况修改
+    const params = config.params;
+    if (params) {
+      if (Object.prototype.hasOwnProperty.call(params, "current")) {
+        config.params.firstResult = params.current;
+        delete config.params.current;
+      }
+    }
     return config;
   },
   err => {
