@@ -22,7 +22,10 @@ const removeFiles = [
     },
     devDependencies: {
       "git-cz": "^4.7.6",
-      "webpack-bundle-analyzer": "^4.5.0"
+      "webpack-bundle-analyzer": "^4.5.0",
+      "husky": "^7.0.4",
+      "@commitlint/cli": "^16.2.3",
+      "@commitlint/config-conventional": "^16.2.1"
     },
     scripts: {
       serve: "vue-cli-service serve",
