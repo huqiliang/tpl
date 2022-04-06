@@ -28,7 +28,7 @@ const removeFiles = [
       serve: "vue-cli-service serve",
       build: "vue-cli-service build",
       lint: "vue-cli-service lint",
-      commit: "git add . && npx git-cz",
+      commit: "git add . && npx git-cz  && git push",
       analyze: "npm_config_report=true vue-cli-service build --mode analyze"
     },
     config: {
@@ -37,7 +37,7 @@ const removeFiles = [
       }
     },
     gitHooks: {
-      "commit-msg": "node scripts/verifyCommitMsg.js"
+      "commit-msg": "commitlint --edit $1"
     }
   });
 };
