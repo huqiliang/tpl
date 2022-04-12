@@ -129,7 +129,7 @@ export default {
     return {
       routes,
       isCollapsed: false,
-      background: "#ccc",
+      background: "#ccc"
     };
   },
   computed: {
@@ -138,30 +138,50 @@ export default {
     },
     menuitemClasses() {
       return ["menu-item", this.isCollapsed ? "collapsed-menu" : ""];
-    },
+    }
   },
   methods: {
     changeBg() {
       this.background = this.background === "#ccc" ? "#fff" : "#ccc";
     },
     async auth() {
-      const res = await axios.post(
-        "http://192.168.0.85:8109/uc-web/sso/login",
-        {
-          appCode: "",
-          orgCode: "GCBZG",
-          userCode: "GCBZG_ADMIN",
-          password: "e10adc3949ba59abbe56e057f20f883e",
-        }
-      );
-      if (res.data.result === 0) {
-        localStorage.setItem("token", res.data.retVal.jwtToken);
+      const res = await axios.post("http://183.129.215.114:8222/sso/login", {
+        appCode: "",
+        orgCode: "GCBZG",
+        userCode: "GCBZG_ADMIN",
+        password: "e10adc3949ba59abbe56e057f20f883e"
+      });
+      if (res.result === 0) {
+        localStorage.setItem("token", res.retVal.jwtToken);
         this.$Message.success({ content: "授权成功" });
+      } else {
+        this.$Modal.info({
+          render() {
+            return (
+              <div>
+                <p style="padding:5px 0">模拟账号无法登陆,请按以下操作:</p>
+                <p style="padding:5px 0">
+                  1.请打开{" "}
+                  <a target="_blank" href="http://192.168.0.85:8180/sso">
+                    测试服
+                  </a>{" "}
+                  登陆后复制 token
+                </p>
+                <p style="padding:5px 0">
+                  2.打开 f12 查找任意接口,复制 header 中的 Authorizatio n的值
+                </p>
+                <p style="padding:5px 0">
+                  3.在当前 url 后加入 ?token=复制的值 ，即可使用
+                </p>
+              </div>
+            );
+          },
+        });
       }
     },
     collapsedSider() {
       this.$refs.side1.toggleCollapse();
-    },
-  },
+    }
+  }
 };
 </script>
