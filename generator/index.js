@@ -26,7 +26,8 @@ module.exports = (api, options, rootOptions) => {
       "git-cz": "^4.7.6",
       "webpack-bundle-analyzer": "^4.5.0",
       "@commitlint/cli": "^16.2.3",
-      "@commitlint/config-conventional": "^16.2.1"
+      "@commitlint/config-conventional": "^16.2.1",
+      "@release-it/conventional-changelog": "^5.0.0"
     },
     scripts: {
       serve: "vue-cli-service serve --open",
@@ -34,7 +35,8 @@ module.exports = (api, options, rootOptions) => {
       lint: "vue-cli-service lint",
       commit: "git add . && npx git-cz  && git push",
       analyze: "npm_config_report=true vue-cli-service build --mode analyze",
-      release: "npx release-it"
+      release:
+        "npx release-it --no-npm --no-git.requireUpstream --git.pushRepo=origin"
     },
     config: {
       commitizen: {
