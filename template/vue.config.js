@@ -14,7 +14,7 @@ module.exports = {
     // 设置代理
     proxy: {
       "/api": {
-        target: process.env.api,
+        target: process.env.VUE_APP_BASEURL,
         ws: false,
         changeOrigin: true
       }
