@@ -1,7 +1,10 @@
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const pk = require("./package.json");
 
 module.exports = {
+  publicPath: process.env.NODE_ENV === "production" ? `/${pk.name}` : "/",
+  
   configureWebpack: config => {
     if (process.env.NODE_ENV === "production") {
       if (process.env.ANALYZ_ENV) {
