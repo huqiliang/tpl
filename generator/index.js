@@ -18,6 +18,7 @@ module.exports = (api, options, rootOptions) => {
   // 修改 `package.json` 里的字段
   api.extendPackage({
     dependencies: {
+      "view-design": "^4.7.0",
       pro_iview: "^1.4.12"
     },
     devDependencies: {
