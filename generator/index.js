@@ -45,7 +45,7 @@ module.exports = (api, options, rootOptions) => {
       }
     },
     gitHooks: {
-      "commit-msg": "commitlint --edit $1"
+      "commit-msg": "commitlint --edit"
     }
   });
 };
