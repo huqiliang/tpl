@@ -31,7 +31,7 @@ module.exports = (api, options, rootOptions) => {
       "@release-it/conventional-changelog": "^5.0.0"
     },
     scripts: {
-      serve: "vue-cli-service serve --open",
+      serve: "vue-cli-service serve --open --mode local",
       build: "vue-cli-service build",
       lint: "vue-cli-service lint",
       commit: "git add . && npx git-cz  && git push",

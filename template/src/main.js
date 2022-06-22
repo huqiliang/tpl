@@ -7,7 +7,7 @@ import http from "./libs/http";
 import AppPrd from "./App.vue";
 import AppDev from "./AppDevelopment.vue";
 
-const App = process.env.NODE_ENV === "development" ? AppDev : AppPrd;
+const App = process.env.NODE_ENV === "local" ? AppDev : AppPrd;
 
 Vue.use(iView); // step 3:use iView
 Vue.use(proIview, {
