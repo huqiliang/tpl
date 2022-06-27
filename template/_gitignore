@@ -4,8 +4,6 @@ node_modules
 CHANGELOG.md
 
 # local env files
-.env.local
-.env.*.local
 
 # Log files
 npm-debug.log*

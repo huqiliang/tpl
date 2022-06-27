@@ -129,7 +129,7 @@ export default {
     return {
       routes,
       isCollapsed: false,
-      background: "#ccc"
+      background: "#ccc",
     };
   },
   computed: {
@@ -138,18 +138,25 @@ export default {
     },
     menuitemClasses() {
       return ["menu-item", this.isCollapsed ? "collapsed-menu" : ""];
-    }
+    },
   },
   methods: {
     changeBg() {
       this.background = this.background === "#ccc" ? "#fff" : "#ccc";
     },
     async auth() {
-      const res = await axios.post("http://183.129.215.114:8222/sso/login", {
-        appCode: "",
-        orgCode: "GCBZG",
-        userCode: "GCBZG_ADMIN",
-        password: "e10adc3949ba59abbe56e057f20f883e"
+      const res = await axios({
+        url: "http://i.demo.ihotel.cn:8088/uc-web/sso/login",
+        method: "post",
+        data: {
+          appCode: "",
+          orgCode: "GCBZG",
+          userCode: "GCBZG_ADMIN",
+          password: "e10adc3949ba59abbe56e057f20f883e",
+        },
+        headers: {
+          nomsg: true,
+        },
       });
       if (res.result === 0) {
         localStorage.setItem("token", res.retVal.jwtToken);
@@ -175,13 +182,13 @@ export default {
                 </p>
               </div>
             );
-          }
+          },
         });
       }
     },
     collapsedSider() {
       this.$refs.side1.toggleCollapse();
-    }
-  }
+    },
+  },
 };
 </script>
