@@ -146,7 +146,7 @@ export default {
     },
     async auth() {
       const res = await axios({
-        url: "http://i.demo.ihotel.cn:8088/uc-web/sso/login",
+        url: "https://test.ihotel.cn/uc-web/sso/login",
         method: "post",
         data: {
           appCode: "",
