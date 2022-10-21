@@ -11,9 +11,11 @@ module.exports = {
         config.plugins.push(new BundleAnalyzerPlugin());
       }
     }
+    config.optimization.nodeEnv = false;
   },
 
   devServer: {
+    host: "127.0.0.1",
     // 设置代理
     proxy: {
       "/api": {
