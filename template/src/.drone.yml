@@ -1,0 +1,6 @@
+kind: template
+load: default.yaml
+data:
+  name: base
+  ding_token: 
+  ding_secret: 
