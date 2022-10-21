@@ -88,7 +88,7 @@
 
 <script>
 export default {
-  name: "Error404",
+  name: "ErrorView",
   methods: {
     backPage() {
       this.$router.back();
