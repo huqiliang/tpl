@@ -399,8 +399,8 @@ export default {
       //   });
       // },
       map: {
-        dataPath: "retVal.data",
-        totalPath: "retVal.totalRows",
+        dataPath: "data",
+        totalPath: "totalRows",
         message: "message"
       },
       submitForm: "http://192.168.0.38:3000/mock/106/api/test"

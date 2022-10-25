@@ -18,11 +18,11 @@ module.exports = {
     host: "127.0.0.1",
     // 设置代理
     proxy: {
-      "/api": {
-        target: process.env.VUE_APP_BASEURL,
-        ws: false,
-        changeOrigin: true
-      }
+      // "/api": {
+      //   target: process.env.VUE_APP_BASEURL,
+      //   ws: false,
+      //   changeOrigin: true
+      // }
     }
   },
 
